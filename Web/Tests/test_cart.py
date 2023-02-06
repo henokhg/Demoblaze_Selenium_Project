@@ -25,3 +25,4 @@ class Test_Cart_Page(Base_test):
         home.click_on_add_to_cart()
         home.alert = driver.switch_to.alert
         home.alert.accept()
+

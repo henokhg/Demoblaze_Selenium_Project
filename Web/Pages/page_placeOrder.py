@@ -23,10 +23,6 @@ class place_order():
         self.close = order_place.CLOSE
         self.SCROLL_PAUSE_TIME = 5
 
-
-
-
-
     @allure.step
     @allure.description('varify_cart_clickable')
     def varify_cart_clickable(self):
@@ -39,9 +35,6 @@ class place_order():
         self.driver.find_element(By.XPATH, self.place_order).click()
         time.sleep(1)
 
-
-
-
     @allure.step
     @allure.description('insert_data_to_name_input')
     def insert_data_to_name_input(self, user_Name):
@@ -51,11 +44,6 @@ class place_order():
         time.sleep(1)
         Utils(self.driver).assertion(user_Name, userName.get_attribute('value'))
         return userName
-
-
-
-
-
 
     @allure.step
     @allure.description('insert_data_to_country_input')
@@ -67,7 +55,6 @@ class place_order():
         Utils(self.driver).assertion(user_country, userContry.get_attribute('value'))
         return userContry
 
-
     @allure.step
     @allure.description('insert_data_to_country_input')
     def insert_data_to_city_input(self, user_city):
@@ -77,8 +64,6 @@ class place_order():
         time.sleep(1)
         Utils(self.driver).assertion(user_city, userCity.get_attribute('value'))
         return userCity
-
-
 
     @allure.step
     @allure.description('insert_data_to_credit_card_input')
@@ -91,18 +76,16 @@ class place_order():
         Utils(self.driver).assertion(user_creditCard, userCreditCard.get_attribute('value'))
         return userCreditCard
 
-
     @allure.step
     @allure.description('insert_data_to_month_input')
     def insert_data_to_month_input(self, user_month):
-        userMonth= self.driver.find_element(By.ID, self.month)
+        userMonth = self.driver.find_element(By.ID, self.month)
         userMonth.clear()
         userMonth.send_keys(user_month)
         self.driver.implicitly_wait(10)
         time.sleep(2)
         Utils(self.driver).assertion(user_month, userMonth.get_attribute('value'))
         return userMonth
-
 
     @allure.step
     @allure.description('insert_data_to_year_input')
@@ -115,15 +98,11 @@ class place_order():
         Utils(self.driver).assertion(user_Year, userYear.get_attribute('value'))
         return userYear
 
-
-
-
     @allure.step
     @allure.description('varify_cart_clickable')
     def scrolling_the_page(self):
         self.driver.execute_script("window.scrollTo(0, 200)")
         time.sleep(self.SCROLL_PAUSE_TIME)
-
 
     @allure.step
     @allure.description('verify_purchase_clickable')
@@ -138,7 +117,3 @@ class place_order():
         self.driver.find_element(By.XPATH, self.close).click()
         self.driver.implicitly_wait(10)
         time.sleep(2)
-
-
-
-

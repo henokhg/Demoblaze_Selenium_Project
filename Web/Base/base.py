@@ -23,4 +23,3 @@ class Base_test:
             print("Tests is finished")
             self.driver.quit()
 
-

@@ -18,7 +18,7 @@ class SignUp_Steps():
 
     @allure.step
     @allure.description('Clear and insert data to contact name input')
-    def click_on_login_button(self):
+    def click_on_signup_button(self):
         self.driver.find_element(By.ID, self.login_button).click()
         self.driver.implicitly_wait(100)
         time.sleep(2)
@@ -26,7 +26,7 @@ class SignUp_Steps():
 
     @allure.step
     @allure.description('Clear and insert data to contact name input')
-    def enter_fist_name(self, User_name):
+    def enter_User_name(self, User_name):
         username = self.driver.find_element(By.ID, self.nameID)
         username.clear()
         username.send_keys(User_name)

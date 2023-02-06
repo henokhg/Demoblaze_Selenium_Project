@@ -4,4 +4,3 @@ class SignUp():
     NAME = "sign-username"
     PASSWORD = "sign-password"
     SIGNIN_CLICK = "//button[contains(text(),'Sign up')]"
-

@@ -15,6 +15,7 @@ class Login_Steps():
         self.nameID = LoginId.NAME
         self.passwordID = LoginId.PASSWORD
         self.login_click = LoginId.LOGIN_CLICK
+        self.logout_link = LoginId.LOGOUT_CLICK
 
     @allure.step
     @allure.description('Clear and insert data to contact name input')
@@ -26,7 +27,7 @@ class Login_Steps():
 
     @allure.step
     @allure.description('Clear and insert data to contact name input')
-    def enter_fist_name(self, User_name):
+    def enter_name(self, User_name):
         # Utils(self.driver).assertion(self.driver.current_url)
         username = self.driver.find_element(By.ID, self.nameID)
         username.clear()
@@ -53,3 +54,9 @@ class Login_Steps():
         self.driver.implicitly_wait(10)
         time.sleep(5)
 
+    def enter_username(self, param):
+        pass
+
+    def logout_text(self):
+        Logout = self.driver.find_element(By.XPATH, self.logout_link).text
+        return Logout

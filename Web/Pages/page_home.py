@@ -23,6 +23,7 @@ class home_menus():
         self.samsung_galaxy = home.SAMSUNG_GALAXY
         self.next_button = home.NEXT_BUTTON
         self.previous_button = home.PREVIOUS_BUTTON
+        self.cart_page = home.CART_PAGE
 
 
 
@@ -109,10 +110,65 @@ class home_menus():
         self.driver.implicitly_wait(10)
         time.sleep(2)
 
+    @allure.step
+    @allure.description('click on Back button')
+    def Click_Back(self):
+        self.driver.back()
+        self.driver.back()
 
+    @allure.step
+    @allure.description('click on Phone product from phone')
+    def Add_from_phone_product_Category(self):
+        count = 0
+        for i in range(7):
+            time.sleep(1)
+            self.click_on_phone_category()
+            self.driver.find_element(By.XPATH, f"/html[1]/body[1]/div[5]/div[1]/div[2]/div[1]/div[{count+1}]/div[1]/div[1]/h4[1]/a[1]").click()
+            self.driver.implicitly_wait(5)
+            time.sleep(1)
+            self.driver.find_element(By.XPATH, "/html[1]/body[1]/div[5]/div[1]/div[2]/div[2]/div[1]/a[1]").click()
+            time.sleep(2)
+            self.driver.switch_to.alert.accept()
+            self.Click_Back()
+            count += 1
 
+    @allure.step
+    @allure.description('click on product from laptop')
+    def Add_from_Laptop_product_Category(self):
+        count = 0
+        for i in range(6):
+            time.sleep(1)
+            self.click_on_laptop_category()
+            self.driver.find_element(By.XPATH,
+                                     f"/html[1]/body[1]/div[5]/div[1]/div[2]/div[1]/div[{count+1}]/div[1]/div[1]/h4[1]/a[1]").click()
+            self.driver.implicitly_wait(5)
+            time.sleep(1)
+            self.driver.find_element(By.XPATH, "/html[1]/body[1]/div[5]/div[1]/div[2]/div[2]/div[1]/a[1]").click()
+            time.sleep(2)
+            self.driver.switch_to.alert.accept()
+            self.Click_Back()
+            count += 1
 
+    @allure.step
+    @allure.description('click on product from monitor')
+    def Add_from_Monitor_product_Category(self):
+        count = 0
+        for i in range(2):
+            time.sleep(1)
+            self.click_on_monitors_category()
+            self.driver.find_element(By.XPATH,
+                                     f"/html[1]/body[1]/div[5]/div[1]/div[2]/div[1]/div[{count+1}]/div[1]/div[1]/h4[1]/a[1]").click()
+            self.driver.implicitly_wait(5)
+            time.sleep(1)
+            self.driver.find_element(By.XPATH, "/html[1]/body[1]/div[5]/div[1]/div[2]/div[2]/div[1]/a[1]").click()
+            time.sleep(2)
+            self.driver.switch_to.alert.accept()
+            self.Click_Back()
+            count += 1
 
-
-
+    @allure.step
+    @allure.description('click on Back button')
+    def Click_Cart_option(self):
+        self.driver.find_element(By.XPATH, self.cart_page).click()
+        time.sleep(5)
 
